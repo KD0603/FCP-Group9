@@ -1,0 +1,51 @@
+import numpy as np
+
+# Define the Sudoku puzzle as a 2x3 NumPy array
+puzzle = np.array([
+    [0, 2, 0, 0, 3, 0],
+    [1, 0, 0, 0, 0, 5],
+    [0, 3, 6, 0, 2, 0],
+    [0, 1, 0, 0, 0, 0],
+    [3, 0, 0, 4, 0, 0],
+    [0, 0, 0, 0, 0, 0]
+])
+
+def solve_sudoku(puzzle):
+    # Find an empty cell
+    for i in range(6):
+        for j in range(6):
+            if puzzle[i][j] == 0:
+                # Try each possible value in the cell
+                for k in range(1, 7):
+                    if is_valid(puzzle, i, j, k):
+                        puzzle[i][j] = k
+                        if solve_sudoku(puzzle):
+                            return True
+                        puzzle[i][j] = 0
+                return False
+    return True
+
+def is_valid(puzzle, row, col, value):
+    # Check row
+    if value in puzzle[row]:
+        return False
+
+    # Check column
+    if value in puzzle[:,col]:
+        return False
+
+    # Check subgrid
+    subgrid_row = (row // 2) * 2
+    subgrid_col = (col // 3) * 3
+    subgrid = puzzle[subgrid_row:subgrid_row+2, subgrid_col:subgrid_col+3]
+    if value in subgrid:
+        return False
+
+    return True
+
+# Call the solve_sudoku function
+if solve_sudoku(puzzle):
+    print("Sudoku solved!")
+    print(puzzle)
+else:
+    print("Unable to solve the Sudoku puzzle.")
