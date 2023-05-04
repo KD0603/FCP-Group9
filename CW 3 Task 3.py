@@ -13,9 +13,15 @@ puzzle = np.array([
     [0, 6, 4, 0, 3, 1],
     [0, 0, 1, 0, 4, 6]
 ])
+'''
+==================================================================
+For 3×3 Sudoku puzzle: subgrid rows is 2 and subgrid columns is 3
+For 3×2 Sudoku puzzle: subgrid rows is 3 and subgrid columns is 3
+==================================================================
+'''
 # Let the user enter the size of sudoku puzzle
-row_sol = int(input('Please enter the size of the row:'))
-col_sol = int(input('Please enter the size of the column:'))
+row_sol = int(input('Please enter the number of the subgrid row:'))
+col_sol = int(input('Please enter the number of the subgrid column:'))
 
 # Define the length of the Sudoku Puzzle
 n = len(puzzle)  # Define the number of rows
