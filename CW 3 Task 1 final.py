@@ -54,7 +54,6 @@ def solve_sudoku(puzzle):
                     if is_valid(puzzle, i, j, k):
                         puzzle[i][j] = k
                         if solve_sudoku(puzzle):
-                            #print('Put ' + str(puzzle[i][j]) + ' in location(' + str(i + 1) + ',' + str(j + 1) + ')')
                             return True
                         puzzle[i][j] = 0
                 return False
