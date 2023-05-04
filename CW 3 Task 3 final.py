@@ -18,8 +18,8 @@ row_sol = int(input('Please enter the size of the row:'))
 col_sol = int(input('Please enter the size of the column:'))
 
 # Define the length of the Sudoku Puzzle
-n = len(puzzle)
-m = len(puzzle[0])
+n = len(puzzle)  # Define the number of rows
+m = len(puzzle[0]) # Define the number of columns
 
 # To find the empty cells for the sudoku puzzle
 def find_empty(puzzle):
@@ -40,11 +40,11 @@ def find_possible_values(puzzle, row, col):
         values.discard(puzzle[i][col])
 
     # Check the duplicate value in this subgrid and delete the values
-    sub_row = (row // col_sol) * col_sol
-    sub_col = (col // row_sol) * row_sol
-    for i in range(sub_row, sub_row + col_sol):
-        for j in range(sub_col, sub_col + row_sol):
-            values.discard(puzzle[i][j])
+    sub_row = (row // row_sol) * row_sol
+    sub_col = (col // col_sol) * col_sol
+    for r in range(sub_row, sub_row + row_sol):
+        for c in range(sub_col, sub_col + col_sol):
+            values.discard(puzzle[r][c])
     return values
 
 
