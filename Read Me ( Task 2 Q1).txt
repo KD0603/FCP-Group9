@@ -1,2 +1,0 @@
-Due to the code I am using in this program invloves explain, when copying this code into spyder and using it, please put '--explain' in the Run tab, 
-Run Configuration per file, General settings, Command Line options.
