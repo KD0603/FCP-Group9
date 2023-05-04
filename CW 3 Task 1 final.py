@@ -15,9 +15,15 @@ puzzle = np.array([
     [0, 0, 0, 0, 0, 0, 0, 0, 0],
     [0, 3, 1, 0, 0, 8, 0, 5, 7]
 ])
+'''
+==================================================================
+For 3×3 Sudoku puzzle: subgrid rows is 2 and subgrid columns is 3
+For 3×2 Sudoku puzzle: subgrid rows is 3 and subgrid columns is 3
+==================================================================
+'''
 # Let the user enter the size of sudoku puzzle
-row_sol = int(input('Please enter the size of the row:'))
-col_sol = int(input('Please enter the size of the column:'))
+row_sol = int(input('Please enter the number of the subgrid row:'))
+col_sol = int(input('Please enter the number of the subgrid column:'))
 
 # Define the length of the sudoku puzzle
 n = len(puzzle)  # Define the number of rows
@@ -35,9 +41,9 @@ def is_valid(puzzle, row, col, value):
         return False
 
     # Check that there is no duplicate value in this subgrid
-    subgrid_row = (row // col_sol) * col_sol
-    subgrid_col = (col // row_sol) * row_sol
-    subgrid = puzzle[subgrid_row:subgrid_row+col_sol, subgrid_col:subgrid_col+row_sol]
+    subgrid_row = (row // row_sol) * row_sol
+    subgrid_col = (col // col_sol) * col_sol
+    subgrid = puzzle[subgrid_row:subgrid_row+row_sol, subgrid_col:subgrid_col+col_sol]
     if value in subgrid:
         return False
 
