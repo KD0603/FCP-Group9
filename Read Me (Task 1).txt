@@ -1,0 +1,1 @@
+This code will solve a 3x3 grid and a 2x3 grid sudoku, the code will ask for the column and the row number. Copy and Paste it into spyder to use it.
