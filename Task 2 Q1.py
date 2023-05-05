@@ -8,14 +8,16 @@ Created on Tue May  2 00:02:41 2023
 import argparse
 import numpy as np
 
+'''
 ==================================================================
 For 3×3 Sudoku puzzle: subgrid rows is 3 and subgrid columns is 3
 For 3×2 Sudoku puzzle: subgrid rows is 2 and subgrid columns is 3
 ==================================================================
+'''
+# Let the user enter the size of sudoku puzzle
+row_sol = int(input('Please enter the number of the subgrid rows:'))
+col_sol = int(input('Please enter the number of the subgrid columns:'))
 
-#User will need to input some information of the sudoku
-row_sol = int(input('The row to solve:'))
-col_sol = int(input('The column to solve:'))
 
 #This paragraph explains why the code will need a --explain in the configuration to work 
 def parse_args():
