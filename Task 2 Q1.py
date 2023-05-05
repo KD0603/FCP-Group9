@@ -23,7 +23,7 @@ def parse_args():
     parser.add_argument('--explain', action='store_true', help='Provide step-by-step instructions for solving the Sudoku puzzle.')
     return parser.parse_args()
 
-def solve_sudoku(puzzle, explain=False, step=0):
+def solve_sudoku(puzzle, explain=False):
 # Find an empty cell
     for i in range(puzzle.shape[0]):
         for j in range(puzzle.shape[1]):
@@ -32,11 +32,10 @@ def solve_sudoku(puzzle, explain=False, step=0):
                 for k in range(1, puzzle.shape[0]+1):
                     if is_valid(puzzle, i, j, k):
                         puzzle[i][j] = k
-                        if explain:
-                            step += 1
-                            print(f"Step {step}: Place {k} in row {i+1}, column {j+1}")
-                            print(puzzle)
                         if solve_sudoku(puzzle, explain, step):
+                            if explain:
+                            print(f"Place {k} in row {i+1}, column {j+1}")
+                            print(puzzle)
                             return True
                         puzzle[i][j] = 0
                 return False
