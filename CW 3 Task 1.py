@@ -1,7 +1,7 @@
 import numpy as np
 '''
 =============================================================================
-Please place the Sudoku Puzzle in the following area and keep the <np,array>
+Please place the Sudoku Puzzle in the following area and keep the <np,array>.
 =============================================================================
 '''
 puzzle = np.array([
