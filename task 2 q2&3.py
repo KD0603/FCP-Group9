@@ -13,8 +13,15 @@ puzzle = np.array([
     [0, 0, 0, 0, 8, 0, 0, 7, 9]
 ])
 
-row_sol = int(input('The row to solve:'))
-col_sol = int(input('The column to solve:'))
+'''
+==================================================================
+For 3×3 Sudoku puzzle: subgrid rows is 3 and subgrid columns is 3
+For 3×2 Sudoku puzzle: subgrid rows is 2 and subgrid columns is 3
+==================================================================
+'''
+# Let the user enter the size of sudoku puzzle
+row_sol = int(input('Please enter the number of the subgrid rows:'))
+col_sol = int(input('Please enter the number of the subgrid columns:'))
 
 def print_solution(puzzle):
     print("Solution:")
